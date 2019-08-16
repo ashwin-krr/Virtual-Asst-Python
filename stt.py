@@ -27,9 +27,9 @@ def Response(audio):
 
 def assistant(voice):
     if 'open' in voice:
-        reg_ex = re.search('open (.+)', voice)
-        if reg_ex:
-            domain = reg_ex.group(1)
+        match = re.search('open (.+)', voice)
+        if match:
+            domain = match.group(1)
             print(domain)
             url = 'https://www.' + domain
             webbrowser.open(url)
