@@ -36,6 +36,14 @@ def assistant(voice):
             Response('The website has been opened Ashwin.')
         else:
             pass
+  
+    elif 'tell me about' in voice:
+        match = re.search('tell me about (.*)', voice)
+        if match:
+            topic = match.group(1)
+            search = wikipedia.page(topic)
+            print(search.content[:500].encode('utf-8'))
+            # Response(search.content[:500].encode('utf-8'))
 
     elif 'time' in voice:
         now = datetime.datetime.now()
